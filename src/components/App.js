@@ -1,41 +1,16 @@
-import React from 'react';
-import unsplash from "../api/unsplash";
-import SearchBar from './SearchBar';
-import ImageList from './ImageList';
-class App extends React.Component{
+import React from "react";
+import SongList from "./SongList";
 
-  state={images:[]}
-
-   onSearchSubmit=async (term)=>{
-
-    const response=await unsplash.get("/search/photos",
-    {
-      params:{query:term},
-
-
-    })
-    //非同期処理、promise
-    // .then(response=>{
-    //   console.log(response.data.results)
-    // })
-   
-    
-  this.setState({images:response.data.results}) 
-
-  }
-
-  render(){
+const App = () => {
   return (
-    
-  <div className="container mt-5">
-    <SearchBar onSubmit={this.onSearchSubmit}/>
-    Found:{this.state.images.length} images
-    <ImageList images={this.state.images}/>
-  </div>
-  
-  )
-}
-}
+    <div className="ui container grid">
+      <div className="ui row">
+        <div className="column eight wide">
+          <SongList />
+        </div>
+      </div>
+    </div>
+  );
+};
 
-
-export default App
+export default App;
