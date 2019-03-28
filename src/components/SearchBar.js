@@ -3,9 +3,6 @@ import React from 'react';
 
 class SearchBar extends React.Component{
 
-  onInputChange(event){
-    console.log(event.target.value)
-  }
 
   render(){
     return (
@@ -13,7 +10,7 @@ class SearchBar extends React.Component{
         <form>
           <div className="form-group">
             <label htmlFor="formGroupExampleInput">Example label</label>
-            <input onChange={this.onInputChange} type="text" className="form-control" id="formGroupExampleInput" placeholder="Example input" />
+            <input onChange={(e)=> console.log(e.target.value)} type="text" className="form-control" id="formGroupExampleInput" placeholder="Example input" />
           </div>
         </form>
 
