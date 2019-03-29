@@ -4,9 +4,9 @@ import { fetchUser } from "../actions/";
 
 class UserHeader extends React.Component {
 
-  componentDidMount(){
-    this.props.fetchUser(this.props.userId)
-  }
+  // componentDidMount(){
+  //   this.props.fetchUser(this.props.userId)
+  // }
 
   render() {
     // この記述はひとつのユーザを探すために毎度やるのは面倒などでmapに直接書く
@@ -28,4 +28,4 @@ const mapStateToProps=(state,ownProps)=>{
   return {users:state.users.find(user=>user.id===ownProps.userId)}
 }
 
-export default connect(mapStateToProps,{fetchUser})(UserHeader);
+export default connect(mapStateToProps)(UserHeader);
