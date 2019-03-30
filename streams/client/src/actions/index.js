@@ -25,8 +25,10 @@ export const signOut=()=>{
 }
 
 
-export const createStream=formValues=> async dispatch=>{
-  const response =await streams.post('/streams',formValues)
+export const createStream=formValues=> async (dispatch,getState)=>{
+  //分割代入 オブジェクト管理されているものからuserIdを抜き取る
+  const { userId }=getState().auth
+  const response =await streams.post('/streams',{...formValues,userId})
     dispatch({
       type:CREATE_STREAM,
       payload:response.data
